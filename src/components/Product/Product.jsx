@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import './Product.css';
-import { useNavigate } from 'react-router-dom';
-import ring1 from '../Weekly_image_sample/ring3.jpg';
-import earring1 from '../Weekly_image_sample/earring1.jpg';
-import earring2 from '../Weekly_image_sample/earring2.jpg';
-import bracelet1 from '../Weekly_image_sample/bracelet1.jpg';
+import React, { useEffect, useState } from "react";
+import "./Product.css";
+import { useNavigate } from "react-router-dom";
+import ring1 from "../Weekly_image_sample/ring3.jpg";
+import earring1 from "../Weekly_image_sample/earring1.jpg";
+import earring2 from "../Weekly_image_sample/earring2.jpg";
+import bracelet1 from "../Weekly_image_sample/bracelet1.jpg";
 
 const Product = () => {
-  const [activeCategory, setActiveCategory] = useState('ALL');
+  const [activeCategory, setActiveCategory] = useState("ALL");
   const [products, setProducts] = useState([]);
   const navigate = useNavigate(); // useNavigate 훅 사용
 
   useEffect(() => {
     // 데이터 가져오기
-    fetch('http://localhost:8080/api/products')
+    fetch("http://eloriaback.sr-eloria.com/api/products")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
         console.log(data);
       })
       .catch((error) => {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       });
   }, []);
 
@@ -36,46 +36,46 @@ const Product = () => {
 
   // 필터링된 제품 목록 생성 (카테고리에 따라)
   const filteredProducts = products.filter((product) => {
-    if (activeCategory === 'ALL') return true;
+    if (activeCategory === "ALL") return true;
     return product.productcategory === activeCategory;
   });
 
   return (
-    <div className='Product-Page'>
-      <div className='product-section'>
-        <div className='gender'>
+    <div className="Product-Page">
+      <div className="product-section">
+        <div className="gender">
           <h1>WOMANS</h1>
         </div>
-        <div className='item-menu'>
+        <div className="item-menu">
           <button
             className={`menu-button ${
-              activeCategory === 'ALL' ? 'active' : ''
+              activeCategory === "ALL" ? "active" : ""
             }`}
-            onClick={() => handleCategoryClick('ALL')}
+            onClick={() => handleCategoryClick("ALL")}
           >
             ALL
           </button>
           <button
             className={`menu-button ${
-              activeCategory === 'RING' ? 'active' : ''
+              activeCategory === "RING" ? "active" : ""
             }`}
-            onClick={() => handleCategoryClick('RING')}
+            onClick={() => handleCategoryClick("RING")}
           >
             RING
           </button>
           <button
             className={`menu-button ${
-              activeCategory === 'EARRING' ? 'active' : ''
+              activeCategory === "EARRING" ? "active" : ""
             }`}
-            onClick={() => handleCategoryClick('EARRING')}
+            onClick={() => handleCategoryClick("EARRING")}
           >
             EARRING
           </button>
           <button
             className={`menu-button ${
-              activeCategory === 'BRACELET' ? 'active' : ''
+              activeCategory === "BRACELET" ? "active" : ""
             }`}
-            onClick={() => handleCategoryClick('BRACELET')}
+            onClick={() => handleCategoryClick("BRACELET")}
           >
             BRACELET
           </button>
@@ -83,7 +83,7 @@ const Product = () => {
       </div>
 
       {/* 상품 이미지 섹션 */}
-      <div className='section product-images'>
+      <div className="section product-images">
         {filteredProducts.map((product, index) => (
           <div
             key={product.productid}
@@ -91,11 +91,11 @@ const Product = () => {
             className={`product-img ${index + 1}`}
           >
             <img
-              src={`http://localhost:8080/img/${product.productimage}`}
+              src={`http://eloriaback.sr-eloria.com/img/${product.productimage}`}
               alt={product.product_name}
             />
 
-            <div href='' className='product-text'>
+            <div href="" className="product-text">
               <h2>{product.productname}</h2>
               <p>KRW {product.productprice.toLocaleString()}</p>
             </div>
@@ -132,8 +132,8 @@ const Product = () => {
           </div>
         </div>
       </div> */}
-      <div className='pagination'>
-        <button className='active'>1</button>
+      <div className="pagination">
+        <button className="active">1</button>
         <button>2</button>
         <button>3</button>
       </div>
