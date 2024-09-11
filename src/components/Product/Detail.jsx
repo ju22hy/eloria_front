@@ -16,7 +16,7 @@ const Detail = () => {
 
   useEffect(() => {
     // 데이터 가져오기
-    fetch(`http://eloriaback.sr-eloria.com/api/products/${productid}`)
+    fetch(`https://eloriaback.sr-eloria.com/api/products/${productid}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -80,7 +80,7 @@ const Detail = () => {
     );
 
     if (userConfirmed) {
-      fetch(`http://eloriaback.sr-eloria.com/api/add-to-basket`, {
+      fetch(`https://eloriaback.sr-eloria.com/api/add-to-basket`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -159,7 +159,7 @@ const Detail = () => {
         <div className="image-gallery">
           <img
             className="main-p-img"
-            src={`http://eloriaback.sr-eloria.com/img/${product.productimage}`}
+            src={`https://eloriaback.sr-eloria.com/img/${product.productimage}`}
             alt="메인 이미지"
           />
           <img

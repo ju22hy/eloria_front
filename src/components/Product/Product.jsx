@@ -13,7 +13,7 @@ const Product = () => {
 
   useEffect(() => {
     // 데이터 가져오기
-    fetch("http://eloriaback.sr-eloria.com/api/products")
+    fetch("https://eloriaback.sr-eloria.com/api/products")
       .then((response) => response.json())
       .then((data) => {
         setProducts(data);
@@ -91,7 +91,7 @@ const Product = () => {
             className={`product-img ${index + 1}`}
           >
             <img
-              src={`http://eloriaback.sr-eloria.com/img/${product.productimage}`}
+              src={`https://eloriaback.sr-eloria.com/img/${product.productimage}`}
               alt={product.product_name}
             />
 

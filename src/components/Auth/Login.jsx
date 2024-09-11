@@ -45,7 +45,7 @@ function Login() {
     setErrors(newErrors);
 
     axios
-      .post("http://eloriaback.sr-eloria.com/login", formData)
+      .post("https://eloriaback.sr-eloria.com/login", formData)
       .then((res) => {
         if (res.status === 201) {
           console.log(res);
@@ -72,7 +72,7 @@ function Login() {
   };
 
   const handleGoogleSignUp = () => {
-    window.location.href = "http://eloriaback.sr-eloria.com/auth/google"; // 구글 연동 회원가입 페이지로 이동
+    window.location.href = "https://eloriaback.sr-eloria.com/auth/google"; // 구글 연동 회원가입 페이지로 이동
   };
 
   return (

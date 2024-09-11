@@ -16,7 +16,7 @@ function Mypage() {
   useEffect(() => {
     // 유저 정보를 가져오는 API 호출
     axios
-      .get("http://eloriaback.sr-eloria.com/api/mypage/getUserInfo", {
+      .get("https://eloriaback.sr-eloria.com/api/mypage/getUserInfo", {
         withCredentials: true,
       })
       .then((res) => {
@@ -52,7 +52,7 @@ function Mypage() {
     // 비밀번호 확인 요청
     axios
       .post(
-        "http://eloriaback.sr-eloria.com/api/mypage/checkPassword",
+        "https://eloriaback.sr-eloria.com/api/mypage/checkPassword",
         { password },
         { withCredentials: true }
       )
@@ -60,7 +60,7 @@ function Mypage() {
         if (res.status === 200) {
           // 비밀번호 확인 성공 후 탈퇴 요청
           return axios.delete(
-            "http://eloriaback.sr-eloria.com/api/mypage/delete",
+            "https://eloriaback.sr-eloria.com/api/mypage/delete",
             {
               withCredentials: true,
             }

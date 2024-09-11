@@ -53,7 +53,7 @@ function JoinInfo() {
     };
 
     axios
-      .post("http://eloriaback.sr-eloria.com/auth/googleinfo", formData)
+      .post("https://eloriaback.sr-eloria.com/auth/googleinfo", formData)
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
           navigate("/login");

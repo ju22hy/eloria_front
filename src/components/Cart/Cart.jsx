@@ -8,7 +8,7 @@ const Cart = () => {
 
   useEffect(() => {
     // 사용자별 장바구니 데이터를 서버에서 가져오기
-    fetch("http://eloriaback.sr-eloria.com/api/get-basket", {
+    fetch("https://eloriaback.sr-eloria.com/api/get-basket", {
       method: "GET",
       credentials: "include", // 쿠키 포함 요청
     })
@@ -82,7 +82,7 @@ const Cart = () => {
 
   const handleDeleteProduct = (productid) => {
     // 서버에 삭제 요청 보내기
-    fetch("http://eloriaback.sr-eloria.com/api/remove-from-basket", {
+    fetch("https://eloriaback.sr-eloria.com/api/remove-from-basket", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -115,7 +115,7 @@ const Cart = () => {
 
     if (selectedProductIds.length === 0) return;
 
-    fetch("http://eloriaback.sr-eloria.com/api/select-remove-from-basket", {
+    fetch("https://eloriaback.sr-eloria.com/api/select-remove-from-basket", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -215,7 +215,7 @@ const Cart = () => {
                     </td>
                     <td className="product-info">
                       <img
-                        src={`http://eloriaback.sr-eloria.com/img/${product.productimage}`}
+                        src={`https://eloriaback.sr-eloria.com/img/${product.productimage}`}
                         alt={product.productname}
                       />
                       <span>{product.productname}</span>
