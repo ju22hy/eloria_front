@@ -48,9 +48,9 @@ function Login() {
       .post("https://eloriaback.sr-eloria.com/login", formData)
       .then((res) => {
         if (res.status === 201) {
-          console.log(res);
+          // console.log(res);
           const decoded = jwtDecode(res.data.token);
-          console.log(decoded);
+          // console.log(decoded);
           dispatch(login({ authData: decoded }));
           alert("로그인 성공 !");
           navigate("/");
