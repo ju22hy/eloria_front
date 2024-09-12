@@ -11,37 +11,16 @@ const Product = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate(); // useNavigate 훅 사용
 
-  // useEffect(() => {
-  //   // 데이터 가져오기
-  //   fetch("https://eloriaback.sr-eloria.com/api/products")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setProducts(data);
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching products:", error);
-  //     });
-  // }, []);
-
   useEffect(() => {
     // 데이터 가져오기
     fetch("https://eloriaback.sr-eloria.com/api/products")
-      .then((response) => {
-        if (!response.ok) {
-          // 서버에서 JSON이 아닌 응답을 보낼 경우 처리
-          return response.text().then((text) => {
-            throw new Error(text); // 응답을 텍스트로 읽어 에러로 던짐
-          });
-        }
-        return response.json(); // 응답이 JSON일 경우
-      })
+      .then((response) => response.json())
       .then((data) => {
-        setProducts(data); // 상태 업데이트
+        setProducts(data);
         console.log(data);
       })
       .catch((error) => {
-        console.error("Error fetching products:", error); // 에러 로그
+        console.error("Error fetching products:", error);
       });
   }, []);
 
