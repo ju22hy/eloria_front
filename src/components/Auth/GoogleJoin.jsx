@@ -71,28 +71,6 @@ function JoinInfo() {
       <h2 className="join-title">JOIN</h2>
       <div className="join-container">
         <form className="signup-form" onSubmit={handleSubmit}>
-          {/* <div className="join-group">
-            <label>닉네임</label>
-            <input
-              type="text"
-              value={nickname}
-              placeholder="닉네임을 입력해주세요."
-              onChange={(e) => setNickname(e.target.value)}
-            />
-            {errors.nickname && <p className="error">{errors.nickname}</p>}
-          </div>
-
-          <div className="join-group">
-            <label>이메일</label>
-            <input
-              type="email"
-              value={email}
-              placeholder="로그인 시 사용할 이메일을 입력해주세요."
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {errors.email && <p className="error">{errors.email}</p>}
-          </div> */}
-
           <div className="join-group">
             <label>비밀번호</label>
             <input

@@ -67,7 +67,7 @@ function JoinInfo() {
       .post("https://eloriaback.sr-eloria.com/signup", formData)
       .then((res) => {
         if (res.status === 201) {
-          alert("회원가입 성공 ! 로그인 페이지로 이동합니다. ");
+          alert("회원가입 성공! 로그인 페이지로 이동합니다. ");
           navigate("/login");
         } else {
           alert("회원가입에 실패했습니다.");
@@ -137,7 +137,7 @@ function JoinInfo() {
             <input
               type="text"
               value={contact}
-              placeholder="'-' 없이 숫자만 입력해주세요."
+              placeholder="'-'  없이 숫자만 입력해주세요."
               onChange={(e) => setContact(e.target.value)}
             />
             {errors.contact && <p className="error">{errors.contact}</p>}
