@@ -20,7 +20,6 @@ jobs:
       - name: Sign in to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
-        working-directory: ./aicc_eloria-main/front
         run: docker build -t sorayoo/eloria-front .
       - name: Push Docker Image
         run: docker push sorayoo/eloria-front:latest
