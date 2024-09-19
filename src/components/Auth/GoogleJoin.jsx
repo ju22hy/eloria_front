@@ -56,6 +56,7 @@ function JoinInfo() {
       .post("https://eloriaback.sr-eloria.com/auth/googleinfo", formData)
       .then((res) => {
         if (res.status === 200 || res.status === 201) {
+          alert("구글 회원가입이 완료되었습니다!");
           navigate("/login");
         } else {
           alert("회원가입에 실패했습니다.");
@@ -63,6 +64,7 @@ function JoinInfo() {
       })
       .catch((error) => {
         console.log(error);
+        alert("서버 오류가 발생했습니다.");
       });
   };
 

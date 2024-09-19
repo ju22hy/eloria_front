@@ -52,7 +52,7 @@ function Login() {
           const decoded = jwtDecode(res.data.token);
           // console.log(decoded);
           dispatch(login({ authData: decoded }));
-          alert("로그인 성공 !");
+          alert("로그인이 완료되었습니다.");
           navigate("/");
         } else {
           alert("로그인에 실패했습니다.");
