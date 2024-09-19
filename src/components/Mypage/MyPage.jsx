@@ -36,6 +36,8 @@ function Mypage() {
       });
   }, []);
 
+  console.log(document.cookie);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
