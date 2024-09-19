@@ -175,9 +175,10 @@ const Detail = () => {
           <p className="details-product-price">
             KRW {product.productprice?.toLocaleString()}
           </p>
-          <p className="details-product-description">
-            {product.productdescription}
-          </p>
+          <p
+            className="details-product-description"
+            dangerouslySetInnerHTML={{ __html: product.productdescription }}
+          />
           <div className="quantity-selector">
             <div className="quantity-input">
               <input
