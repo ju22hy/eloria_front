@@ -28,7 +28,7 @@
   # nginx 디렉토리에 리액트 빌드 파일 복사
   COPY --from=build /app/build .
 
-  # 사용자 정의 Nginx 설정 파일 복사
+  # 사용자 정의 로컬 디렉토리의 Nginx 설정 파일 복사
   COPY nginx.conf /etc/nginx/nginx.conf
 
   # nginx 포트 설정
