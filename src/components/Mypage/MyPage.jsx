@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "./redux/slices/authSlice"; // authSlice에서 logout 액션 가져오기
 import "./mypage.css";
 
 function Mypage() {
+  const authData = useSelector((state) => state.auth.authData);
+  const dispatch = useDispatch();
   const [userInfo, setUserInfo] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // 모달 열림 상태
   const [password, setPassword] = useState("");
@@ -14,6 +18,12 @@ function Mypage() {
   });
 
   useEffect(() => {
+    if (!authData) {
+      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+      window.location.href = "/login";
+      return;
+    }
+
     // 유저 정보를 가져오는 API 호출
     axios
       .get("https://eloriaback.sr-eloria.com/api/mypage/getUserInfo", {
@@ -33,13 +43,12 @@ function Mypage() {
           err.response ? err.response.data : err
         );
         if (err.response && err.response.status === 401) {
+          dispatch(logout()); // 로그아웃 처리
           alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
           window.location.href = "/login";
         }
       });
-  }, []);
-
-  console.log(document.cookie);
+  }, [authData, dispatch]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
