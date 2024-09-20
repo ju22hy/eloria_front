@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "./redux/slices/authSlice"; // authSlice에서 logout 액션 가져오기
+import { logout } from "../../redux/slices/authSlice"; // authSlice에서 logout 액션 가져오기
 import "./mypage.css";
 
 function Mypage() {
