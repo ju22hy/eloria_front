@@ -76,7 +76,7 @@ const Detail = () => {
     }
 
     const userConfirmed = window.confirm(
-      "장바구니에 상품을 추가 하시겠습니까?"
+      "장바구니에 상품을 추가 하시겠습니까??"
     );
 
     if (userConfirmed) {
